@@ -15,34 +15,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Poly.h">
+    <ClInclude Include="Poly.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\PolyNode.h">
+    <ClInclude Include="PolyNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\TestPoly.h">
+    <ClInclude Include="TestPoly.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\CompEng2SI3_Lab3_MarkingScheme_2023_ForStudents_v1.txt">
+    <Text Include="CompEng2SI3_Lab3_MarkingScheme_2023_ForStudents_v1.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Lab3_2023.pdf">
+    <None Include="Lab3_2023.pdf">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Lab3.cpp">
+    <ClCompile Include="Lab3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Poly.cpp">
+    <ClCompile Include="Poly.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\TestPoly.cpp">
+    <ClCompile Include="TestPoly.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

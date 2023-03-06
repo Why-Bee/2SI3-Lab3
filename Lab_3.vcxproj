@@ -18,6 +18,22 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Poly.h" />
+    <ClInclude Include="PolyNode.h" />
+    <ClInclude Include="TestPoly.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CompEng2SI3_Lab3_MarkingScheme_2023_ForStudents_v1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lab3_2023.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lab3.cpp" />
+    <ClCompile Include="Poly.cpp" />
+    <ClCompile Include="TestPoly.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,22 +142,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\Poly.h" />
-    <ClInclude Include="..\PolyNode.h" />
-    <ClInclude Include="..\TestPoly.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\CompEng2SI3_Lab3_MarkingScheme_2023_ForStudents_v1.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Lab3_2023.pdf" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\Lab3.cpp" />
-    <ClCompile Include="..\Poly.cpp" />
-    <ClCompile Include="..\TestPoly.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
