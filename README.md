@@ -1,8 +1,8 @@
 # Lab_3
 
 ## Authors
-COMPENG 2SI3 Teaching Team\n
-Stefan Tosti\n
+COMPENG 2SI3 Teaching Team\
+Stefan Tosti\
 Yash Bhatia
 
 ## Dependencies
