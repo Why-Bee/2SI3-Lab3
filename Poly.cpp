@@ -162,6 +162,16 @@ void Poly::multiplyPoly(const Poly& p)
 	Poly* tempPoly = new Poly();
 	Poly* finalProduct = new Poly();
 
+	// we will first consider the case where either this polynomia or P is 0
+	// in this case, we can simply set this polynomial to 0
+	// since we are using a dummy header, we can simply set the next pointer to NULL
+	// cannot use p.getDegree() because it is a const function, and we need to modify the polynomial
+
+	if (getDegree() == -1 || pointer->next == NULL) {
+		head->next = NULL;
+		return;
+	}
+
 	// if we think about how multiplying two polynomials would work by hand, we are basically multiplying each monomial in P
 	// by each monomial in this, and then we add all of those polynomials together
 	// to accomplish this, we can use out multiplyMono method, and our addPolyMethod
@@ -284,4 +294,6 @@ std::string Poly::toString()
 			pointer = pointer->next;
 		}
 	}
+
+	return output;
 }
