@@ -1,4 +1,7 @@
-
+// Lab 3 - Polynomials
+// Code to implement the Poly class
+// Written by Stefan Tosti and Yash Bhatia
+// 8 March 2023
 
 #include "Poly.h"
 
@@ -6,6 +9,9 @@ Poly::Poly()
 {
 	// This constructor should create the zero polynomial with degree = -1
 	// PolyNode has parameters (degree, coefficient, next)
+
+	// space complexity: O(1)
+	// time complexity: O(1)
 	head = new PolyNode(-1, 0, NULL);
 }
 
@@ -22,6 +28,9 @@ Poly::Poly(const std::vector<int>& deg, const std::vector<double>& coeff)
 	// for every element in degree, we create a new node with degree = deg[i], and coefficient = coeff[i]
 	// we make our pointers next value point to the newest created node
 	// we then set pointer to pointer next
+
+	// space complexity: O(n)
+	// time complexity: O(n)
 	head = new PolyNode(-1, 0, NULL);
 	PolyNode* pointer = head;
 	for (int i = 0; i < deg.size(); i++) {
@@ -41,6 +50,9 @@ Poly::~Poly()
 	// again move tempPointer to where pointer is
 	// once we have successfully looped through the entire LL, we can delete pointer, since we don't have anything left
 	// in the LL, we don't have to worry about losing access to that element
+
+	// space complexity: O(1)
+	// time complexity: O(n)
 	PolyNode* pointer = head;
 	PolyNode* tempPointer = head;
 
@@ -57,6 +69,9 @@ void Poly::addMono(int i, double c)
 {
 	// this method adds some arbitrary monomial, cX^i to the current polynomial
 	// i is non-negative, and C CAN be 0
+
+	// space complexity is O(1) since we are not creating any new nodes
+	// time complexity is O(n) since we have to iterate through the entire linked list
 
 	// we first check if the coeffeicent is 0! This is an easy case, because the monomial is non-existant if c = 0
 	// in this case, we can simply return from the function, no changes need to be made to the polynomial
@@ -114,6 +129,9 @@ void Poly::addPoly(const Poly& p)
 	// to help in the implementation of this function, we can use out previously defined addMono function
 	// recall that the add mono function accepts a coeffeicent (c) and an exponent (i) in the arguements
 	// this, we can simply iterate through every node in p, each time passing in the degree and coeffeicent of our current node
+
+	// space complexity: O(m) since we are creating m new nodes
+	// time complexity: O(n^2) since add mono is O(n), and we are calling it n times
 	PolyNode* pointer = p.head;
 	while (pointer->next != NULL) {
 		addMono(pointer->next->deg, pointer->next->coeff);
@@ -125,6 +143,9 @@ void Poly::multiplyMono(int i, double c)
 {
 	// this method modified this polynomial by multiplying by a monomial with exponent i and coeffeicent C
 	// we can assume that i is non negative, but c can be zero
+
+	// space complexity: O(1) since no new nodes are created
+	// time complexity: O(n) since we are iterating through the entire linked list
 
 	PolyNode* pointer = head;
 
@@ -156,6 +177,9 @@ void Poly::multiplyMono(int i, double c)
 void Poly::multiplyPoly(const Poly& p)
 {
 	// This method should multiply this polynomial, by a given polynomial, P
+
+	// space complexity: O(n^2) since we are creating a new polynomial, and a temporary polynomial n times
+	// time complexity: O(n^3) since we are calling add poly, which is O(n^2), and we are calling it n times
 	PolyNode* pointer = p.head;
 	Poly* mult = new Poly();
 	duplicate(*mult);
@@ -204,6 +228,9 @@ void Poly::duplicate(Poly& outputPoly)
 	// if a node already exists, then we can simply set the desires degree and coeffeicent
 	// if a node does not exist already, we have to create a new node and make it point to NULL
 
+	// space complexity: O(n) since we are creating a new polynomial
+	// time complexity: O(n) since we are iterating through the entire linked list
+
 	while (pointerThis->next != NULL) {
 		if (pointerOut->next != NULL) {
 			pointerOut->next->coeff = pointerThis->next->coeff;
@@ -221,6 +248,10 @@ void Poly::duplicate(Poly& outputPoly)
 int Poly::getDegree()
 {
 	// this function should simply return the degree of the polynomial
+
+	// space complexity: O(1) since no new nodes are created
+	// time complexity: O(1) since we are simply returning the degree of the first node in the linked list
+
 	if (head->next == NULL) {
 		return head->deg;
 	}
@@ -233,6 +264,10 @@ int Poly::getDegree()
 int Poly::getTermsNo()
 {
 	// this function should return the number of non zero terms in the polynomial
+
+	// space complexity: O(1) since no new nodes are created
+	// time complexity: O(n) since we are iterating through the entire linked list
+
 	PolyNode* pointer = head->next;
 	int numOfTerms = 0;
 	while (pointer != NULL) {
@@ -257,6 +292,9 @@ double Poly::evaluate(double x)
 	// we then multiply x^i by the coeffeicent from that specific node
 	// finally, we increment the sum and move to the next node
 
+	// space complexity is O(1) since we are not creating any new nodes
+	// time complexity: for the for loop, we are multiplying x by itself 'deg' times, and the deg goes n, n-1, .... 1 therefore the time complexity is O(n^2)
+
 	while (pointer != NULL) {
 		term = 1;
 		for (int i = 0; i < pointer->deg; i++) {
@@ -280,6 +318,10 @@ std::string Poly::toString()
 	// we start forming the output with 'degree=' and using the to_string function with out getDegree method
 	// we can check to see if we have an empty linked list, and print our final statement directly from that
 	// otherwise, we want to iterate through all items in the linked list, adding them to our output statement
+
+	// space complexity: O(n) as the string gets longer as the polynomial gets larger
+	// time complexity: O(n) as we iterate through all of the nodes in the polynomial
+
 	std::string output = "";
 	PolyNode* pointer = head->next;
 	output = output + "degree=" + std::to_string(getDegree()) + ";";
